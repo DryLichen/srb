@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo</title>
+</head>
+<body>
+	<script src = axios.js></script>
+	<script>
+		// 1.配置axios，简化开发( 注意这里创建了一个 axios, 相当于初始化了一个 promise 对象)
+		const request = axios.create({
+			baseURL: 'http://localhost:8080',
+			timeout: 1000,
+			headers: {'token': 'Hello123456'}
+        })
+		
+		// 2.请求拦截器
+		request.interceptors.request.use(
+            config => {
+                console.log('请求拦截器')
+	            console.log('config', config)
+	            config.headers.mytoken = 'Hello123456'
+	            
+	            // 放行
+	            return config
+            },
+            error => {
+                return Promise.reject(error)
+            }
+		)
+		
+		// 3.响应拦截器，response做处理后再将响应给浏览器
+		request.interceptors.response.use(
+            response => {
+                console.log('响应拦截器')
+	            return response.data
+            },
+			error => {
+                Promise.reject(error)
+			}
+		)
+		
+		// 4. axios基于promise，所以相当于操作一个 promise 对象
+		request({
+			method: 'get',
+			url: '/user/list'
+		}).then( response => {
+            console.log("获取数据成功", response)
+		}).catch( error => {
+            console.log("获取数据失败", error)
+		})
+	</script>
+</body>
+</html>

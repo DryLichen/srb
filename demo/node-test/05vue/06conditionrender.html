@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+	<div id="app">
+		<input type="checkbox" v-model="ok">
+		<!-- if 删除增加 -->
+		<p v-if="ok">if yes</p>
+		<p v-else>if no</p>
+		
+		<!-- show 显示和隐藏 -->
+		<p v-show="ok">show yes</p>
+		<p v-show="!ok">show no</p>
+	</div>
+
+	<script src="vue.js"></script>
+	<script>
+	    new Vue({
+            el: "#app",
+            data: {
+                ok: false
+            }
+        })
+	</script>
+</body>
+</html>

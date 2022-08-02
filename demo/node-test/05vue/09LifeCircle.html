@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Life</title>
+</head>
+<body>
+	<div id="app">
+		<h1 id="h3">{{message}}</h1>
+	</div>
+
+	<script src="vue.js"></script>
+	<script>
+		new Vue({
+			el: "#app",
+			data: {
+                message: "这是一条信息"
+			},
+			methods: {
+                show(){
+                    console.log("show方法执行成功")
+                }
+			},
+			
+			// 1.数据尚未被渲染到页面中
+            created(){
+                // 可以访问数据和方法
+	            console.log("created... ...")
+	            console.log(this.message)
+	            this.show()
+	            // 访问页面节点
+	            console.log(document.getElementById('h3').innerText)
+            },
+			// 2.数据已经被渲染
+			mounted(){
+                // 可以访问数据和方法
+                console.log("created... ...")
+                console.log(this.message)
+                this.show()
+                // 访问页面节点
+                console.log(document.getElementById('h3').innerText)
+			}
+		})
+	</script>
+</body>
+</html>

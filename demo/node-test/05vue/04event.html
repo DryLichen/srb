@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+	<div id="app">
+		<button v-on:click="study()">去学习</button>
+	</div>
+
+	<script src="vue.js"></script>
+	<script>
+		new Vue({
+			el: "#app",
+			data: {
+                company: "Google"
+			},
+			methods() {
+                return{
+	                study(){
+	                    // this 表示该方法所属 对象
+	                    alert("我要去" + this.company + "学习")
+	                }
+                }
+			}
+		})
+	</script>
+</body>
+</html>

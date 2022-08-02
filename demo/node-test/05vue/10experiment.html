@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+	<div id="app">
+		<table>
+			<tr>
+				<th>序号</th>
+				<th>姓名</th>
+				<th>年龄</th>
+				<th>email</th>
+			</tr>
+			<tr v-for="(item, index) in userList">
+				<td>{{index + 1}}</td>
+				<td>{{item.name}}</td>
+				<td>{{item.age}}</td>
+				<td>{{item.email}}</td>
+			</tr>
+		</table>
+	</div>
+
+	<script src="vue.js"></script>
+	<script src="axios.js"></script>
+	<script>
+		new Vue({
+			el: "#app",
+			data: {
+                // 数据从数据库取出
+                userList: []
+			},
+			created(){
+                this.showList()
+			},
+			
+            methods: {
+                showList(){
+                    // 使用自定义配置
+	                const request = axios.create({
+		                baseURL: "http://localhost:8080",
+		                timeout: 1000,
+		                headers: {token: '123456'}
+	                })
+	                
+	                //请求拦截器
+	                request.interceptors.request.use(
+                        config => {
+                            // 设置 token 值
+                            config.headers.token = 'helen123456'
+	                        return config
+                        },
+		                error => {
+                            return Promise.reject(error)
+		                }
+	                )
+	                
+	                //响应拦截器
+	                request.interceptors.response.use(
+                        response => {
+                            return response.data
+                        },
+		                error => {
+                            return Promise.reject(error)
+		                }
+	                )
+	                
+	                // axios 获取数据操作
+	                request({
+		                method: 'get',
+		                url: '/user/list'
+	                }).then(
+                        response => {
+                            console.log("获取数据成功", response)
+	                        this.userList = response
+                        }
+	                ).catch(
+                        error => console.log("获取数据失败", error)
+	                )
+                }
+            }
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+{
+  "groups": [
+    {
+      "name": "ronglianyun.sms",
+      "type": "com.dry.srb.sms.util.SmsProperties",
+      "sourceType": "com.dry.srb.sms.util.SmsProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "ronglianyun.sms.a-c-c-o-u-n-t-s-i-d",
+      "type": "java.lang.String",
+      "sourceType": "com.dry.srb.sms.util.SmsProperties"
+    },
+    {
+      "name": "ronglianyun.sms.a-c-c-o-u-n-t-t-o-k-e-n",
+      "type": "java.lang.String",
+      "sourceType": "com.dry.srb.sms.util.SmsProperties"
+    },
+    {
+      "name": "ronglianyun.sms.a-p-p-i-d",
+      "type": "java.lang.String",
+      "sourceType": "com.dry.srb.sms.util.SmsProperties"
+    },
+    {
+      "name": "ronglianyun.sms.account-s-id",
+      "type": "java.lang.String",
+      "sourceType": "com.dry.srb.sms.util.SmsProperties"
+    },
+    {
+      "name": "ronglianyun.sms.account-token",
+      "type": "java.lang.String",
+      "sourceType": "com.dry.srb.sms.util.SmsProperties"
+    },
+    {
+      "name": "ronglianyun.sms.app-id",
+      "type": "java.lang.String",
+      "sourceType": "com.dry.srb.sms.util.SmsProperties"
+    },
+    {
+      "name": "ronglianyun.sms.r-e-q-i-d",
+      "type": "java.lang.String",
+      "sourceType": "com.dry.srb.sms.util.SmsProperties"
+    },
+    {
+      "name": "ronglianyun.sms.req-id",
+      "type": "java.lang.String",
+      "sourceType": "com.dry.srb.sms.util.SmsProperties"
+    },
+    {
+      "name": "ronglianyun.sms.s-u-b-a-p-p-e-n-d",
+      "type": "java.lang.String",
+      "sourceType": "com.dry.srb.sms.util.SmsProperties"
+    },
+    {
+      "name": "ronglianyun.sms.sub-append",
+      "type": "java.lang.String",
+      "sourceType": "com.dry.srb.sms.util.SmsProperties"
+    },
+    {
+      "name": "ronglianyun.sms.t-e-m-p-l-a-t-e-i-d",
+      "type": "java.lang.String",
+      "sourceType": "com.dry.srb.sms.util.SmsProperties"
+    },
+    {
+      "name": "ronglianyun.sms.template-id",
+      "type": "java.lang.String",
+      "sourceType": "com.dry.srb.sms.util.SmsProperties"
+    }
+  ],
+  "hints": []
+}

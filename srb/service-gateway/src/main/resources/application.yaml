@@ -1,0 +1,43 @@
+#端口号与nginx端口重合，均为默认端口
+server:
+  port: 80
+
+#spring配置
+spring:
+  profiles:
+    active: dev
+  application:
+    name: service-gateway
+  #springcloud配置
+  cloud:
+    #nacos服务地址
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    #gateway可以发现nacos中的微服务，并自动生成转发路由
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      #自定义路由
+      routes:
+      - id: service-core
+        uri: lb://service-core
+        predicates:
+          - Path=/*/core/**
+      - id: service-sms
+        uri: lb://service-sms
+        predicates:
+        - Path=/*/sms/**
+      - id: service-oss
+        uri: lb://service-oss
+        predicates:
+        - Path=/*/oss/**
+      #处理跨域
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+

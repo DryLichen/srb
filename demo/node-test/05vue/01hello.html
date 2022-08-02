@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+	<!-- id标识vue作用的范围，绑定的数据必须写在这个div内部 -->
+	<div id="app">
+		<!-- 插值表达式，声明式渲染，绑定vue中的 data 数据 -->
+		{{ message }}
+	</div>
+
+	<script src="vue.js"></script>
+	<script>
+		 // 创造一个 vue 对象，构造函数参数是一个 配置对象
+		 //	配置对象的 key 是固定值，不是自己定义的
+		 new Vue({
+			 el: '#app', // 选择vue的 作用范围
+			 data: {
+                 // 在 data 中注册数据，用于视图中的数据绑定
+				 message: 'Hello Vue!'
+			 }
+             // 或者写成完整的函数
+             // data(){
+             //     return {
+             //         message: 'Hello World'
+             //     }
+             // }
+		 })
+		
+	</script>
+</body>
+</html>

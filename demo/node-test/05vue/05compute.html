@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+	<!-- <div id="app"> -->
+	<!-- 	<p> 原始数据：{{message}}</p> -->
+	<!-- 	&lt;!&ndash; 模板表达式 反转字符串 &ndash;&gt; -->
+	<!-- 	<p> 反转数据1：{{message.split('').reverse().join('')}}</p> -->
+	<!-- 	&lt;!&ndash; 计算属性 &ndash;&gt; -->
+	<!-- 	<p> 反转数据2：{{reverseMessage}}</p> -->
+	<!-- </div> -->
+	
+	<!-- <script src="vue.js"></script> -->
+	<!-- <script> -->
+	<!--     new Vue({ -->
+	<!--         el: "#app", -->
+	<!--         data: { -->
+	<!--             message: "Google" -->
+	<!--         }, -->
+	<!--         methods() { -->
+	<!--             return{ -->
+	<!--                 study(){ -->
+	<!--                     // this 表示该方法所属 对象 -->
+	<!--                     alert("我要去" + this.company + "学习") -->
+	<!--                 } -->
+	<!--             } -->
+	<!--         }, -->
+	<!-- 	    computed: { -->
+    <!--             reverseMessage(){ -->
+    <!--                 console.log("计算属性执行... ...") -->
+	<!--                 return this.message.split('').reverse().join('') -->
+    <!--             } -->
+	<!-- 	    } -->
+	<!--     }) -->
+	<!-- </script> -->
+
+	
+	<!-- ************ 例子：计算属性的单向和双向绑定  ***********-->
+	<div id="app">
+		姓：<input type="text" placeholder="First Name" v-model="firstname"><br>
+		名：<input type="text" placeholder="Last Name" v-model="lastname"><br>
+		全名1：<input type="text" placeholder="Full Name" v-model="fullName1">
+		全名2：<input type="text" placeholder="Full Name" v-model="fullName2">
+	</div>
+
+	<script src="vue.js"></script>
+	<script>
+		new Vue({
+			el: "#app",
+			
+			data: {
+                firstname: "Lee",
+				lastname: "Luda"
+			},
+			
+			computed: {
+                fullName1(){
+                    console.log("执行计算属性1")
+                    return this.firstname + ' ' + this.lastname
+                },
+				
+                fullName2: {
+                    get(){
+                        console.log("执行计算属性2 的 get()")
+		                return this.firstname + ' ' + this.lastname
+	                },
+                    //当给fullName2指定新值时自动调用：实现双向绑定
+                    set(value){
+                        console.log("执行计算属性2 的 set()")
+	                    const words = value.split(' ')
+	                    this.firstname = words[0]
+	                    this.lastname = words[1]
+                    }
+                }
+			}
+		})
+	</script>
+</body>
+</html>

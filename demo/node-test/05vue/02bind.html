@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+	<div id="app">
+		<a v-bind:href="site" target="_blank">{{company}}</a><br>
+		<!-- 单向数据绑定 -->
+		<input type="text" v-bind:value="company"><br>
+		<!-- 双向数据绑定 -->
+		<input type="text" v-model:value="company"><br>
+	</div>
+
+	<script src="vue.js"></script>
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+                company: 'Google',
+				site: 'http://www.google.com'
+			}
+		})
+	</script>
+</body>
+</html>

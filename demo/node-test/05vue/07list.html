@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>List</title>
+</head>
+<body>
+	<div id="app">
+		<ul>
+			<!-- item 元素名可以任取，index 索引就叫这个 -->
+			<li v-for="(item,index) in userList">
+				{{index}} {{item.username}} {{item.age}}
+			</li>
+		</ul>
+	</div>
+
+	<script src="vue.js"></script>
+	<script>
+		new Vue({
+			el: "#app",
+			data: {
+                userList: [
+                    { username: 'helen', age: 18 },
+                    { username: 'peter', age: 28 }
+                ]
+			}
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+#微服务端口配置
+server:
+  port: 8130
+
+#spring相关配置
+spring:
+  profiles:
+    active: dev
+  application:
+    name: service-oss
+  #解决swagger报错
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  servlet:
+    multipart:
+      max-file-size: 10MB
+  #nacos服务地址
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+#阿里云文件存储
+aliyun:
+  oss:
+    endpoint: https://oss-cn-chengdu.aliyuncs.com
+    keyId: #TODO
+    keySecret: #TODO
+    bucketName: #TODO

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	
+	<script src="vue.js"></script>
+	<script src="vue-router.js"></script>
+</head>
+<body>
+	<div id="app">
+        <h1> Hello App!</h1>
+        <p>
+		    <!-- router-link 会被渲染成 a标签 -->
+		    <!-- to 属性指定链接 -->
+	        <router-link to="/">首页</router-link>
+	        <router-link to="/invest">我要投资</router-link>
+	        <router-link to="/user">用户中心</router-link>
+        </p>
+	  
+		<!-- 路由出口，匹配到的组件会在这里显示 -->
+		<router_view></router_view>
+    </div>
+
+
+	<script>
+		// 1.定义组件
+		const welcome = {template: '<div>尚融宝主页</div>'}
+		const invest = {template: '<div>投资产品</div>'}
+		const user = {template: '<div>用户信息</div>'}
+		
+		// 2.定义路由：每个路由应该映射一个组件
+		const routes = [
+            {path: '/', redirect: '/welcome'},
+            {path: '/welcome', component: welcome},
+            {path: '/invest', component: invest},
+            {path: '/user', component: user}
+		]
+		
+		// 3.以routes为配置对象，新建route对象
+		const router = new VueRouter({
+			routes
+		})
+		
+		// 4.创建和挂载根实例，使得整个程序都有路由功能
+		new Vue({
+			el: "#app",
+			router
+		})
+	</script>
+</body>
+</html>
