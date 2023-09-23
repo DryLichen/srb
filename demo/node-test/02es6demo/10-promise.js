@@ -3,7 +3,7 @@ const fs = require('fs')
 
 //实例化Promise对象，三种状态：初始化pending、成功resolved、失败rejected
 const p = new Promise((resolve, reject) => {
-    fs.readFile('../01nodedemo/他.txt', (err,data) => {
+    fs.readFile('../01nodedemo/demo.txt', (err,data) => {
         if (err) reject(err)
         resolve(data)
     })

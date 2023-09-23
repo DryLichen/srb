@@ -6,7 +6,7 @@
 </head>
 <body>
 	<div id="app">
-		<input type="checkbox" v-model="ok">
+		<input type="checkbox" v-model:value="ok">
 		<!-- if 删除增加 -->
 		<p v-if="ok">if yes</p>
 		<p v-else>if no</p>
