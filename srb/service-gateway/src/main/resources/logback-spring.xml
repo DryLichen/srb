@@ -7,7 +7,7 @@
 	
 	<!-- property定义一些可以引用的属性键值对 -->
 	<!-- log输出目录 -->
-	<property name="log.path" value="D:\\java\\code\\p2p\\srb_log\\gateway" />
+	<property name="log.path" value="C:\\PseudoD\\Projects\\test\\gateway" />
 	
 	<!-- 控制台日志格式 彩色日志-->
 	<!-- %n保证每一个log换行 -->

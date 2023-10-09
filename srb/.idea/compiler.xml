@@ -26,7 +26,7 @@
       <module name="service-gateway" options="-parameters" />
       <module name="service-oss" options="-parameters" />
       <module name="service-sms" options="-parameters" />
-      <module name="srb" options="-parameters" />
+      <module name="srb" options="" />
     </option>
   </component>
 </project>

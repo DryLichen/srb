@@ -39,7 +39,7 @@ public class LendReturnController {
 
     @ApiOperation("获取还款计划列表")
     @RequestMapping("/list/{lendId}")
-    public R getLIst(@PathVariable("lendId") Long lendId){
+    public R getList(@PathVariable("lendId") Long lendId){
         List<LendReturn> list = lendReturnService.getList(lendId);
         return R.ok().data("list", list);
     }

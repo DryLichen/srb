@@ -35,7 +35,7 @@ export default {
     // })
   },
 
-  // 结构赋值，只要page里的axios, page.axios
+  // 解构赋值，只要page里的axios, page.axios
   // 无法获取到值，因为异步操作，response还未得到就进行了赋值
 //   asyncData({$axios}){
 //     console.log('asyncData')
@@ -48,6 +48,7 @@ export default {
 //   }
 
   // 服务器端渲染,变量名不能和data里的重复
+  // 使用async await同步操作
   async asyncData({ $axios }){
     console.log('asyncData')
     let response = await $axios.$get('/')

@@ -35,7 +35,7 @@ spring:
     port: 5672
     virtual-host: /srbhost
     username: srbuser
-    password: #TODO
+    password: 123456
 
 
 #容联云短信服务
